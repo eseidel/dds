@@ -6390,9 +6390,9 @@ int Par(struct ddTableResults * tablep, struct parResults *presp, int vulnerable
   presp->parScore[1][2]=' ';
   presp->parScore[1][3]='\0';
 
-  itoa(par_score[0], temp, 10);
+  snprintf(temp, 8, "%d", par_score[0]);
   strcat(presp->parScore[0], temp);
-  itoa(par_score[1], temp, 10);
+  snprintf(temp, 8, "%d", par_score[1]);
   strcat(presp->parScore[1], temp);
 
   for (i=0; i<=1; i++) {
@@ -6450,7 +6450,7 @@ int Par(struct ddTableResults * tablep, struct parResults *presp, int vulnerable
 
         strcat(presp->parContractsString[i], buff);
 
-        itoa(par_tricks[i]-6, temp, 10);
+        snprintf(temp, 8, "%d", par_tricks[i]-6);
         buff[0]=cardSuit[denom_conv[j]];
         buff[1]='x';
         buff[2]='\0';
@@ -6529,7 +6529,7 @@ int Par(struct ddTableResults * tablep, struct parResults *presp, int vulnerable
 
         n = CalcMultiContracts(max_lower, par_tricks[i]);
 
-        itoa(n, temp, 10);
+        snprintf(temp, 8, "%d", n);
         buff[0]=cardSuit[denom_conv[j]];
         buff[1]='\0';
         strcat(temp, buff);
@@ -6556,7 +6556,7 @@ int Par(struct ddTableResults * tablep, struct parResults *presp, int vulnerable
 
           strcat(presp->parContractsString[i], buff);
 
-          itoa(5, temp, 10);
+          snprintf(temp, 8, "%d", 5);
           buff[0]=cardSuit[denom_conv[j]];
           buff[1]='\0';
           strcat(temp, buff);
@@ -6633,7 +6633,7 @@ int Par(struct ddTableResults * tablep, struct parResults *presp, int vulnerable
 
           n = CalcMultiContracts(max_lower, 9);
 
-          itoa(n, temp, 10);
+          snprintf(temp, 8, "%d", n);
           buff[0]=cardSuit[denom_conv[j]];
           buff[1]='\0';
           strcat(temp, buff);
@@ -6707,7 +6707,7 @@ int Par(struct ddTableResults * tablep, struct parResults *presp, int vulnerable
 
           n = CalcMultiContracts(max_lower, 8);
 
-          itoa(n, temp, 10);
+          snprintf(temp, 8, "%d", n);
           buff[0]=cardSuit[denom_conv[j]];
           buff[1]='\0';
           strcat(temp, buff);
